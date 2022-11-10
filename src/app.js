@@ -9,6 +9,10 @@ app.use(cors({
     origin: 'http://127.0.0.1:5500'
 }))
 
+app.use(cors({
+    origin: 'http://83.46.144.229'
+}))
+
 app.use('/api',entrenosRutes)
 
 app.use((req,res,next) => {
