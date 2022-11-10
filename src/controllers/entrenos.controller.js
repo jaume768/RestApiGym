@@ -1,8 +1,9 @@
 import { pool } from '../db.js';
 
 export const getEntrenos = async (req,res) =>{ 
-    const [result] = await pool.query('select * from tipo')
-    res.json(result)
+    res.setHeader('Content-Type', 'application/json');
+    const result = await pool.query('select * from tipo')
+    res.end(JSON.stringify(result));
 }
 
 export const getEntrenosPierna = async (req,res) =>{ 
