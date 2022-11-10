@@ -1,9 +1,14 @@
 import express from 'express'
 import entrenosRutes from './routes/entrenos.routes.js'
+import cors from 'cors'
 
 
 const app = express()
-const cors = require('cors')
+  
+// Then pass these options to cors:
+app.use(cors({
+    origin: 'http://localhost:5500'
+}));
 
 app.use('/api',entrenosRutes)
 app.use(cors({
