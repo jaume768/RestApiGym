@@ -4,11 +4,6 @@ import cors from 'cors'
 
 
 const app = express()
-  
-// Then pass these options to cors:
-app.use(cors({
-    origin: 'http://127.0.0.1:5500'
-}));
 
 app.use('/api',entrenosRutes)
 app.use(cors({
