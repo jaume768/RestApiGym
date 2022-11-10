@@ -4,10 +4,9 @@ import cors from 'cors'
 
 
 const app = express()
-const origenes = ['http://127.0.0.1:5500','http://83.46.144.229','null']
 
 app.use(cors({
-    origin: origenes
+    origin: '*'
 }))
 
 app.use('/api',entrenosRutes)
