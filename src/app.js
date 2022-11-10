@@ -7,7 +7,7 @@ const app = express()
   
 // Then pass these options to cors:
 app.use(cors({
-    origin: 'http://localhost:5500'
+    origin: 'http://127.0.0.1:5500'
 }));
 
 app.use('/api',entrenosRutes)
