@@ -10,6 +10,9 @@ app.use(cors({
     origin: '*' // si posam sa variable origenes, nomes hi accediran es ja dits
 }))
 
+app.use(bodyParser.json()) // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true }))
+
 app.use('/api',entrenosRutes)
 
 app.use((req,res,next) => {
