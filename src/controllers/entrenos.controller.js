@@ -22,3 +22,12 @@ export const getEntrenosPull = async (req,res) =>{
     const [result] = await pool.query(select)
     res.json(result)
 }
+
+export const updateEntreno = async (req,res) =>{ 
+    const {id} = req.params
+    const {Kilos,Series,Repes,Pr} = req.body
+    const [result] = await pool.query('update entrenamientos set Kilos = IFNULL(?,Kilos), Series = IFNULL(?,Series), Repes = IFNULL(?,Repes), Pr = IFNULL(?,Pr) where id = ?',[Kilos,Series,Repes,Pr,id])
+    console.log(result)
+    const [rows] = await pool.query('select * from entrenamientos where id = ?',[id])
+    res.json(rows[0])
+}

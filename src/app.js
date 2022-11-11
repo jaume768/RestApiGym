@@ -4,9 +4,10 @@ import cors from 'cors'
 
 
 const app = express()
+// const origenes = [ aqui se poden posar ses url que poden accedir a s'API ]
 
 app.use(cors({
-    origin: '*'
+    origin: '*' // si posam sa variable origenes, nomes hi accediran es ja dits
 }))
 
 app.use('/api',entrenosRutes)
