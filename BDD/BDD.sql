@@ -18,6 +18,20 @@ create table entrenamientos(
     FOREIGN KEY (Tipo) REFERENCES tipo(id)
 );
 
+create table horario(
+    id int AUTO_INCREMENT,
+    Nombre text,
+    Kilos int,
+    Repes int,
+    Series int,
+    Pr int,
+    Dia int,
+    Mes int,
+    id_entrenamiento int,
+    PRIMARY KEY (id),
+    FOREIGN KEY (id_entrenamiento) REFERENCES entrenamientos(id)
+);
+
 insert into tipo(Nombre,Dia) VALUES("Pierna","Lunes y Jueves"),("Push","Martes y Viernes"),("Pull","Miercoles y Sabado");
 insert into entrenamientos(Nombre,Kilos,Repes,Series,Pr,link_foto,Tipo) VALUES("Peso Muerto",70,7,3,120,"https://w7.pngwing.com/pngs/818/437/png-transparent-deadlift-smith-machine-weight-training-leg-curl-squat-barbell-angle-white-hand.png",1),("Extension de pierna",78,10,3,100,"https://i.blogs.es/c32e1e/guia1/450_1000.webp",1),
 ("Sentadillas",70,6,3,0,"https://i.blogs.es/78c15b/sergio-pedemonte-7li2dupduew-unsplash/1366_2000.jpg",1),("Press de pirena",80,10,3,0,"https://i.blogs.es/7425be/prensa1/1366_2000.jpg",1),

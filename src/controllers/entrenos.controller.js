@@ -25,9 +25,17 @@ export const getEntrenosPull = async (req,res) =>{
 
 export const updateEntreno = async (req,res) =>{ 
     const {id} = req.params
-    const {Kilos,Series,Repes,Pr} = req.body
+    const {Kilos,Series,Repes,Pr,Dia,Mes,Nombre} = req.body
     const [result] = await pool.query('update entrenamientos set Kilos = IFNULL(?,Kilos), Series = IFNULL(?,Series), Repes = IFNULL(?,Repes), Pr = IFNULL(?,Pr) where id = ?',[Kilos,Series,Repes,Pr,id])
     console.log(result)
+    const [historial] = await pool.query('insert into horario(Nombre,Kilos,Repes,Series,Pr,Dia,Mes,id_entrenamiento) values(?,?,?,?,?,?,?,?)',[Nombre,Kilos,Repes,Series,Pr,Dia,Mes,id])
+    console.log('historial actualizado')
     const [rows] = await pool.query('select * from entrenamientos where id = ?',[id])
     res.json(rows[0])
+}
+
+export const getHistorial = async (req,res) =>{ 
+    const {id} = req.params
+    const [result] = await pool.query('Select * from horario where id = ?',id)
+    res.json(result)
 }
