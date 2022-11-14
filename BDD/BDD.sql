@@ -25,8 +25,7 @@ create table horario(
     Repes int,
     Series int,
     Pr int,
-    Dia int,
-    Mes int,
+    Fecha date,
     id_entrenamiento int,
     PRIMARY KEY (id),
     FOREIGN KEY (id_entrenamiento) REFERENCES entrenamientos(id)
