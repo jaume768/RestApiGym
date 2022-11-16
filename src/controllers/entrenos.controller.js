@@ -36,6 +36,6 @@ export const updateEntreno = async (req,res) =>{
 
 export const getHistorial = async (req,res) =>{ 
     const {id} = req.params
-    const [result] = await pool.query('Select entrenamientos.Nombre,horario.Kilos,horario.Repes,horario.Series,horario.Pr,horario.Dia,horario.Mes,horario.Anyo from horario,entrenamientos where entrenamientos.id = horario.id_entrenamiento and entrenamientos.id = ?',id)
+    const [result] = await pool.query('Select entrenamientos.Nombre,horario.id,horario.Kilos,horario.Repes,horario.Series,horario.Pr,horario.Dia,horario.Mes,horario.Anyo from horario,entrenamientos where entrenamientos.id = horario.id_entrenamiento and entrenamientos.id = ?',id)
     res.json(result)
 }
