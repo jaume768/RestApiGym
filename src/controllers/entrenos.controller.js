@@ -39,3 +39,9 @@ export const getHistorial = async (req,res) =>{
     const [result] = await pool.query('Select entrenamientos.Nombre,horario.id,horario.Kilos,horario.Repes,horario.Series,horario.Pr,horario.Dia,horario.Mes,horario.Anyo from horario,entrenamientos where entrenamientos.id = horario.id_entrenamiento and entrenamientos.id = ?',id)
     res.json(result)
 }
+
+export const deleteHistorial = async (req,res) =>{ 
+    const {id} = req.body
+    const [result] = await pool.query('Delete form horario where id = ?',id)
+    res.json(result)
+}

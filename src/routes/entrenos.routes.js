@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {getEntrenos,getEntrenosPierna,getEntrenosPush,getEntrenosPull,updateEntreno,getHistorial} from '../controllers/entrenos.controller.js'
+import {getEntrenos,getEntrenosPierna,getEntrenosPush,getEntrenosPull,updateEntreno,getHistorial,deleteHistorial} from '../controllers/entrenos.controller.js'
 
 const router = Router()
 
@@ -15,6 +15,6 @@ router.patch('/updateEntreno/:id',updateEntreno);
 
 router.get('/historial/:id',getHistorial);
 
-
+router.patch('/deleteHistorial',deleteHistorial);
 
 export default router
