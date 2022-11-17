@@ -15,6 +15,6 @@ router.patch('/updateEntreno/:id',updateEntreno);
 
 router.get('/historial/:id',getHistorial);
 
-router.patch('/deleteHistorial',deleteHistorial);
+router.delete('/deleteHistorial',deleteHistorial);
 
 export default router

@@ -42,6 +42,6 @@ export const getHistorial = async (req,res) =>{
 
 export const deleteHistorial = async (req,res) =>{ 
     const {id} = req.body
-    const [result] = await pool.query('delete form horario where id = ?',id)
-    console.log("Historial borrado")
+    const [result] = await pool.query('delete form horario where id = ?',[id])
+    console.log(result)
 }
